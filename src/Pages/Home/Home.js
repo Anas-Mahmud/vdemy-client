@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
@@ -10,8 +11,8 @@ const Home = () => {
                     </h1>
                     <p className="px-8 mt-8 mb-12 text-lg">Cupiditate minima voluptate temporibus quia? Architecto beatae esse ab amet vero eaque explicabo!</p>
                     <div className="flex flex-wrap justify-center">
-                        <button className="px-8 py-3 m-2 text-lg font-semibold rounded dark:bg-violet-400 dark:text-gray-900">Get started</button>
-                        <button className="px-8 py-3 m-2 text-lg border rounded dark:text-black dark:border-gray-700">Learn more</button>
+                        <Link to={'/courses'}><button className="px-8 py-3 m-2 text-lg font-semibold rounded dark:bg-violet-400 dark:text-gray-900">Get started</button></Link>
+                        <Link to={'/blog'}><button className="px-8 py-3 m-2 text-lg border rounded dark:text-black dark:border-gray-700">Learn more</button></Link>
                     </div>
                 </div>
             </section>

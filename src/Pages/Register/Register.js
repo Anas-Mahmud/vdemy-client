@@ -1,8 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaGoogle, FaTwitter, FaGithub, FaLock } from "react-icons/fa";
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Register = () => {
+
+    const { providerLogin } = useContext(AuthContext);
+
+    const googleProvider = new GoogleAuthProvider();
+
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
+    }
+
     return (
         <div class="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 my-20">
             <div class="w-full max-w-lg">
@@ -51,7 +68,7 @@ const Register = () => {
                         <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
                     </div>
                     <div className="flex justify-center space-x-4">
-                        <button aria-label="Log in with Google" className="p-3 rounded-sm">
+                        <button onClick={handleGoogleSignIn} aria-label="Log in with Google" className="p-3 rounded-sm">
                             <FaGoogle />
                         </button>
                         <button aria-label="Log in with Twitter" className="p-3 rounded-sm">

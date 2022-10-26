@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const LeftSideNav = () => {
     const [courses, setCourses] = useState([]);
@@ -10,13 +12,19 @@ const LeftSideNav = () => {
             .then(data => setCourses(data))
     }, [])
 
+    const { user } = useContext(AuthContext);
+
     return (
         <div className='pl-3'>
-            <div className="h-full p-3 space-y-2 w-auto bg-white text-black">
+            <div className="h-full p-3 space-y-2 w-auto">
                 <div className="flex items-center p-2 space-x-4">
-                    <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="w-12 h-12 rounded-full dark:bg-gray-500" />
+                    {
+                        user?.photoURL ?
+                            <img className="w-12 h-12 rounded-full" src={user?.photoURL} alt="" />
+                            : <FaUser></FaUser>
+                    }
                     <div>
-                        <h2 className="text-lg font-semibold">Leroy Jenkins</h2>
+                        <h2 className="text-lg font-semibold">{user?.displayName}</h2>
                     </div>
                 </div>
                 <div className="divide-y divide-gray-700">
