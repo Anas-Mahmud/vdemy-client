@@ -8,20 +8,20 @@ const Header = () => {
                 <div className="container flex justify-between h-16 mx-auto">
                     <Link aria-label="Back to homepage" className="flex items-center p-2">
                         <img className='h-10 pr-2' src="https://jthemes.net/themes/html/etreeks/assests/images/hero-logo.png" alt="" srcset="" />
-                        <span className='text-3xl font-bold'>Vdemy</span>
+                        <span className='text-3xl font-bold text-yellow-500'>Vdemy</span>
                     </Link>
                     <ul className="items-stretch hidden space-x-3 lg:flex">
                         <li className="flex">
-                            <Link rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent dark:text-violet-400 dark:border-violet-400">Link</Link>
+                            <Link to={'/home'} className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Home</Link>
                         </li>
                         <li className="flex">
-                            <Link rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Link</Link>
+                            <Link to={'/courses'} className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Courses</Link>
                         </li>
                         <li className="flex">
-                            <Link rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Link</Link>
+                            <Link to={'/faq'} className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">FAQ</Link>
                         </li>
                         <li className="flex">
-                            <Link rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Link</Link>
+                            <Link to={'/blog'} className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Blog</Link>
                         </li>
                     </ul>
                     <div className="items-center flex-shrink-0 hidden lg:flex">

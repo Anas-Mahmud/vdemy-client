@@ -70,7 +70,7 @@ const Register = () => {
                         </button>
                     </div>
                     <p className="text-xs text-center sm:px-6 dark:text-gray-600">Don't have an account?
-                        <Link to={'/login'} rel="noopener noreferrer" href="#" className="underline text-black"> Login</Link>
+                        <Link to={'/login'} rel="noopener noreferrer" href="#" className="underline text-yellow-500"> Login</Link>
                     </p>
                 </form>
             </div>

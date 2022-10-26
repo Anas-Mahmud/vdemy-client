@@ -1,7 +1,11 @@
 import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const LeftSideNav = () => {
+    const [courses, setCourses] = useState([]);
+
+
     return (
         <div className='pl-3'>
             <div className="h-full p-3 space-y-2 w-auto bg-white text-black">
