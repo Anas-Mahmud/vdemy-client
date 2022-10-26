@@ -17,7 +17,7 @@ const Login = () => {
                     <div>
                         <div className="flex justify-between mb-2">
                             <label for="password" className="text-sm">Password</label>
-                            <Link rel="noopener noreferrer" href="#" className="text-xs hover:underline dark:text-gray-400">Forgot password?</Link>
+                            <Link className="text-xs hover:underline dark:text-gray-400">Forgot password?</Link>
                         </div>
                         <input type="password" name="password" id="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100" />
                     </div>
@@ -27,7 +27,7 @@ const Login = () => {
                         <button type="button" className="w-full px-8 py-3 font-semibold rounded-md dark:bg-yellow-600 dark:text-gray-900">Sign in</button>
                     </div>
                     <p className="px-6 text-sm text-center dark:text-gray-400">Don't have an account yet?
-                        <Link to={'/register'} rel="noopener noreferrer" href="#" className="hover:underline dark:text-yellow-600">Register</Link>.
+                        <Link to={'/register'} className="hover:underline dark:text-yellow-600">Register</Link>.
                     </p>
                 </div>
             </form>
