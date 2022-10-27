@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub, FaLock } from "react-icons/fa";
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
@@ -10,6 +10,10 @@ import { toast } from 'react-toastify';
 const Register = () => {
     const [error, setError] = useState('');
     const { providerLogin, githubSignInProvider, createUser, updateUserProfile } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
 
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
@@ -20,6 +24,7 @@ const Register = () => {
                 const user = result.user;
                 toast.success('Google Registration Success');
                 console.log(user);
+                navigate(from, { replace: true });
             })
             .catch(error => console.error(error))
     }
@@ -30,6 +35,7 @@ const Register = () => {
                 const user = result.user;
                 toast.success('Github Registration Success');
                 console.log(user);
+                navigate(from, { replace: true });
             })
             .catch(error => console.error(error))
     }
@@ -50,6 +56,7 @@ const Register = () => {
                 toast.success('Registration Success');
                 setError('');
                 form.reset();
+                navigate(from, { replace: true });
                 handleUpdateUserProfile(name, photoURL);
             })
             .catch(e => {
