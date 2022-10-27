@@ -12,7 +12,13 @@ const LeftSideNav = () => {
             .then(data => setCourses(data))
     }, [])
 
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error))
+    }
 
     return (
         <div className='pl-3'>
@@ -24,7 +30,14 @@ const LeftSideNav = () => {
                             : <FaUser></FaUser>
                     }
                     <div>
-                        <h2 className="text-lg font-semibold">{user?.displayName}</h2>
+                        <h2 className="text-lg font-semibold">
+                            {
+                                user?.uid ?
+                                    <span>{user?.displayName}</span>
+                                    :
+                                    <p><span>user name</span></p>
+                            }
+                        </h2>
                     </div>
                 </div>
                 <div className="divide-y divide-gray-700">
@@ -37,9 +50,7 @@ const LeftSideNav = () => {
                     </ul>
                     <ul className="pt-4 pb-2 space-y-1 text-start">
                         <li>
-                            <Link className="flex items-center p-2 space-x-3 rounded-md">
-                                <span>Logout</span>
-                            </Link>
+                            <button onClick={handleLogOut} type="button" className="px-8 py-3 font-semibold rounded dark:bg-yellow-600 dark:text-gray-800">Logout</button>
                         </li>
                     </ul>
                 </div>
