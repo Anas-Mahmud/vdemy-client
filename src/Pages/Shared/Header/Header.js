@@ -1,7 +1,17 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error))
+    }
+
     return (
         <div>
             <header className="p-4 dark:bg-pink-900 dark:text-gray-100">
@@ -25,8 +35,15 @@ const Header = () => {
                         </li>
                     </ul>
                     <div className="items-center flex-shrink-0 hidden lg:flex">
-                        <Link to={'/login'}><button className="self-center px-8 py-3 font-semibold rounded dark:bg-yellow-600 dark:text-gray-900">Login</button></Link>
-                        <Link to={'/register'}><button className="self-center px-8 py-3 font-semibold rounded dark:bg-yellow-600 dark:text-gray-900">Register</button></Link>
+                        {
+                            user?.uid ?
+                                <button onClick={handleLogOut} type="button" className="px-8 py-3 font-semibold rounded dark:bg-yellow-600 dark:text-gray-800">Logout</button>
+                                :
+                                <>
+                                    <Link to={'/login'}><button className="self-center px-8 py-3 mr-3 font-semibold rounded dark:bg-yellow-600 dark:text-gray-900">Login</button></Link>
+                                    <Link to={'/register'}><button className="self-center px-8 py-3 font-semibold rounded dark:bg-yellow-600 dark:text-gray-900">Register</button></Link>
+                                </>
+                        }
                     </div>
                     <button className="p-4 lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 dark:text-gray-100">

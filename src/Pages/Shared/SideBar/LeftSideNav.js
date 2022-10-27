@@ -33,7 +33,7 @@ const LeftSideNav = () => {
                         <h2 className="text-lg font-semibold">
                             {
                                 user?.uid ?
-                                    <span>{user?.displayName}</span>
+                                    <span className='text-black'>{user?.displayName}</span>
                                     :
                                     <p><span>user name</span></p>
                             }

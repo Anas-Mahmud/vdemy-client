@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 const Register = () => {
     const [error, setError] = useState('');
-    const { providerLogin, createUser } = useContext(AuthContext);
+    const { providerLogin, createUser, updateUserProfile } = useContext(AuthContext);
 
     const googleProvider = new GoogleAuthProvider();
 
@@ -36,11 +36,22 @@ const Register = () => {
                 console.log(user);
                 setError('');
                 form.reset();
+                handleUpdateUserProfile(name, photoURL);
             })
             .catch(e => {
                 console.error(e)
                 setError(e.message);
             })
+    }
+
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(e => console.error(e))
     }
 
     return (

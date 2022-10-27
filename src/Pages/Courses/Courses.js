@@ -4,7 +4,7 @@ import Course from '../Course/Course';
 
 const Courses = () => {
     const courses = useLoaderData();
-    console.log(courses);
+    // console.log(courses);
     return (
         <div>
             <div className="space-y-2 text-center mt-10">
