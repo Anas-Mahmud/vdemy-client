@@ -1,21 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaGoogle, FaTwitter, FaGithub, FaLock } from "react-icons/fa";
+import { FaGoogle, FaGithub, FaLock } from "react-icons/fa";
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 const Register = () => {
     const [error, setError] = useState('');
-    const { providerLogin, createUser, updateUserProfile } = useContext(AuthContext);
+    const { providerLogin, githubSignInProvider, createUser, updateUserProfile } = useContext(AuthContext);
 
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
             .then(result => {
                 const user = result.user;
+                toast.success('Google Registration Success');
+                console.log(user);
+            })
+            .catch(error => console.error(error))
+    }
+
+    const handleGithubSignIn = () => {
+        githubSignInProvider(githubProvider)
+            .then(result => {
+                const user = result.user;
+                toast.success('Github Registration Success');
                 console.log(user);
             })
             .catch(error => console.error(error))
@@ -34,6 +47,7 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                toast.success('Registration Success');
                 setError('');
                 form.reset();
                 handleUpdateUserProfile(name, photoURL);
@@ -108,10 +122,7 @@ const Register = () => {
                         <button onClick={handleGoogleSignIn} aria-label="Log in with Google" className="p-3 rounded-sm">
                             <FaGoogle />
                         </button>
-                        <button aria-label="Log in with Twitter" className="p-3 rounded-sm">
-                            <FaTwitter />
-                        </button>
-                        <button aria-label="Log in with GitHub" className="p-3 rounded-sm">
+                        <button onClick={handleGithubSignIn} aria-label="Log in with GitHub" className="p-3 rounded-sm">
                             <FaGithub />
                         </button>
                     </div>

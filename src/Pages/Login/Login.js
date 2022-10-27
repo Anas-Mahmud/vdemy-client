@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const [error, setError] = useState('');
@@ -21,6 +22,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
+                toast.success('Login Success');
                 setError('');
                 navigate(from, { replace: true });
             })
