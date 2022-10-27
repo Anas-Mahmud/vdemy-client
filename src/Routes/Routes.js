@@ -26,12 +26,12 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses/',
                 element: <Courses></Courses>,
-                loader: () => fetch('http://localhost:5000/courses')
+                loader: () => fetch('https://vdemy-server.vercel.app')
             },
             {
                 path: '/courses/:id',
                 element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
+                loader: ({ params }) => fetch(`https://vdemy-server.vercel.app/${params.id}`)
             },
             {
                 path: '/checkout',
