@@ -11,6 +11,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [dark, setDark] = useState(false)
 
     const providerLogin = (provider) => {
         setLoading(true);
@@ -52,7 +53,7 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
-    const authInfo = { user, loading, providerLogin, logOut, createUser, signIn, updateUserProfile, githubSignInProvider }
+    const authInfo = { dark, setDark, user, loading, providerLogin, logOut, createUser, signIn, updateUserProfile, githubSignInProvider }
 
     return (
         <AuthContext.Provider value={authInfo}>

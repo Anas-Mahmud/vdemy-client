@@ -21,9 +21,9 @@ const LeftSideNav = () => {
     }
 
     return (
-        <div className='pl-3'>
+        <div className='px-3 bg-zinc-300'>
             <div className="h-full p-3 space-y-2 w-auto">
-                <div className="flex items-center p-2 space-x-4">
+                <div className="flex items-center px-2 py-3 space-x-4">
                     {
                         user?.photoURL ?
                             <img className="w-12 h-12 rounded-full" src={user?.photoURL} alt="" />
@@ -40,21 +40,23 @@ const LeftSideNav = () => {
                         </h2>
                     </div>
                 </div>
-                <div className="divide-y divide-gray-700">
+                <hr />
+                <div className="divide-y divide-gray-100">
                     <ul className="pt-2 pb-4 space-y-2 text-start">
                         {
-                            courses.map(course => <p className='bg-slate-300 text-black text-lg font-semibold pl-2 py-2 rounded-lg' key={course.id}>
+                            courses.map(course => <p className='hover:bg-gradient-to-r from-teal-800 to-cyan-200 hover:text-gray-50 text-black text-lg font-semibold pl-4 py-3 rounded-lg' key={course.id}>
                                 <Link to={`/courses/${course.id}`}>{course.title}</Link>
                             </p>)
                         }
                     </ul>
-                    <ul className="pt-4 pb-2 space-y-1 text-start">
+                    <ul className="pt-4 pb-2 px-5 space-y-1 text-start">
                         <li>
-                            <button onClick={handleLogOut} type="button" className="px-8 py-3 font-semibold rounded dark:bg-yellow-600 dark:text-gray-800">Logout</button>
+                            <button onClick={handleLogOut} type="button" className="px-8 py-3 font-semibold rounded bg-yellow-500 text-gray-100">Logout</button>
                         </li>
                     </ul>
                 </div>
             </div>
+
         </div>
     );
 };
