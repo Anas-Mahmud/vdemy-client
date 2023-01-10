@@ -8,8 +8,8 @@ const Course = ({ singleCourse }) => {
         <div>
             <h2>{course.title}</h2>
             <div>
-                <article className="flex flex-col dark:bg-slate-300 rounded-md border-2 shadow-xl">
-                    <img alt="" className="object-cover w-full h-52 dark:bg-gray-100 rounded-md" src={image} />
+                <article className="flex flex-col bg-slate-300 rounded-md border-[1px] shadow-xl">
+                    <img alt="" className="object-cover w-full h-52 bg-gray-100 rounded-md border-b-2" src={image} />
                     <div className="flex flex-col flex-1 p-6">
                         <h2 className='text-yellow-600 text-3xl font-bold'>{title}</h2>
                         <h3 className="flex-1 py-2 text-lg font-semibold text-start">

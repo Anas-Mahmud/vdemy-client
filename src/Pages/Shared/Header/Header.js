@@ -43,7 +43,7 @@ const Header = () => {
                         <div className="items-center flex-shrink-0 hidden lg:flex">
                             {
                                 user?.uid ?
-                                    <button onClick={handleLogOut} type="button" className="px-8 py-3 font-semibold rounded dark:bg-yellow-600 dark:text-gray-800">Logout</button>
+                                    <button onClick={handleLogOut} type="button" className="px-8 py-3 font-semibold rounded bg-yellow-600 dark:text-gray-800">Logout</button>
                                     :
                                     <>
                                         <Link to={'/login'}><button className="self-center px-8 py-3 mr-3 font-semibold rounded bg-yellow-600 dark:text-gray-900">Sign in</button></Link>

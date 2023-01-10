@@ -102,8 +102,8 @@ const Login = () => {
                             Sign in
                         </button>
                     </div>
-                    <p className="px-6 text-sm text-center dark:text-gray-400">Don't have an account yet?
-                        <Link to={'/register'} className="hover:underline dark:text-yellow-600">Register</Link>.
+                    <p className="px-6 text-sm text-center text-gray-800">Don't have an account yet?
+                        <Link to={'/register'} className="hover:underline text-yellow-600"> Register</Link>
                     </p>
                 </form>
             </div>
