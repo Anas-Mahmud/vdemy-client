@@ -62,6 +62,22 @@ const Header = () => {
                 Blog
               </Link>
             </li>
+            <li className="flex">
+              <Link
+                to={"/about"}
+                className="flex items-center px-4 -mb-1 border-b-2 border-transparent hover:text-yellow-400"
+              >
+                About US
+              </Link>
+            </li>
+            <li className="flex">
+              <Link
+                to={"/contact"}
+                className="flex items-center px-4 -mb-1 border-b-2 border-transparent hover:text-yellow-400"
+              >
+                Contact
+              </Link>
+            </li>
           </ul>
           <div className="flex">
             <div className="items-center flex-shrink-0 hidden lg:flex">
